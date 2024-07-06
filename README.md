@@ -49,7 +49,7 @@ web-main
   |          |-static   * 静态模板
   |       |
   |   |- views (视图文件，影响单个项目或单个端)
-  |       |-kmg（视图工程）
+  |       |-sports（视图工程）
   |         |-assets  * 静态资源
   |         |-public  * 公共配置 - 影响单个项目
   |         |-desktop * PC端视图
@@ -78,13 +78,13 @@ export default {
 
 ### 别名
 对于不同工程的私有路径，如何在公共组件中进行区分，例如：
-KMG前台平台配置文件路径：`src/views/kmg/desktop/config.ts`
-KMG后台配置文件路径：`src/views/kmg-backend/desktop/config.ts`
+sports前台平台配置文件路径：`src/views/sports/desktop/config.ts`
+sports后台配置文件路径：`src/views/sports-backend/desktop/config.ts`
 在公共组件中要使用对应的配置文件就需要用到别名进行处理
 ```javascript
 
 // projects.config.js
-const kmg = {
+const sports = {
   client: client === 'pc' ? 'desktop' : 'mobile',
   base: 'mc',
 }
