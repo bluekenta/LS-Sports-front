@@ -1,10 +1,3 @@
-/*
- * @Description: 全局变量，包含第三方库引用
- * 
- * 
- * @LastEditTime: 2023-12-15 18:20:27
- * 
- */
 declare let $: any;
 declare let $t: Function | any;
 declare let devConsole: any;
