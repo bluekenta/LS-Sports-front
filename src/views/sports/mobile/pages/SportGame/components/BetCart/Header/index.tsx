@@ -1,0 +1,23 @@
+import {useSelector} from 'react-redux';
+import useProfile from '@core/hooks/users/useProfile';
+import TStore from '@core/reducers/_reduxStore';
+import {formatCurrency} from '@helpers/unit';
+import style from './style.scss';
+import useOrderCart from '@core/hooks/sports/useOrderCart';
+
+export default () => {
+  const {loadingProfile, getProfile} = useProfile();
+  const info = useSelector((state: TStore) => state.user.info);
+  const {isSeries} = useOrderCart();
+
+  return (
+    <div className={style.wrapper}>
+      <span className="type">{isSeries ? '串' : '单'}</span>
+      <span className="brand">DP体育</span>
+      <span className="balance">
+        <em>{loadingProfile ? formatCurrency(info.totalBalance) : formatCurrency(info.totalBalance || 0)}</em>
+        <img src={require('./i/icon-refresh.png')} className={loadingProfile?'rotate':''} onClick={() => getProfile()} />
+      </span>
+    </div>
+  );
+};
