@@ -1,0 +1,169 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.champion_item) {
+  background: rgba(110, 125, 188, 0.07);
+
+  .play-item {
+    padding-top: 14px;
+    border-radius: 4px;
+    padding-bottom: 2px;
+
+    &:last-child {
+      margin-bottom: 10px;
+      border-bottom: none;
+    }
+    .play-name {
+      position: relative;
+      color: #BECEEE;
+      font-family: "PingFang SC";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px; /* 100% */
+      margin-left: 8px;
+      padding-left: 6px;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 14px;
+        left: 0;
+        // top: 50%;
+        // transform: translateY(-50%);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: url('~@this/pages/SportGame/components/MatchDetail/i/play-game-line.webp');
+      }
+    }
+  }
+  .play-content {
+    padding: 0 10px;
+  }
+  .odd-item {
+    flex: 1;
+    cursor: pointer;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: rgba(110, 125, 188, 0.07);
+    font-size: 12px;
+    position: relative;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 14px; /* 100% */
+
+    span:not(.odd) {
+      line-height: 1;
+    }
+    &:hover {
+      background: rgba(101, 222, 235, 0.20);
+    }
+    &.active:not(.disabled) {
+      border-radius: 3px;
+      border: 1px solid #65DEEB;
+      background: rgba(101, 222, 235, 0.20);  
+    }
+    div {
+      color: #798BB2;
+      font-family: "PingFang SC";
+      font-weight: 400;
+    }
+    &.active {
+      div {
+        color: var(--DP_basic_white, #FFF);
+      }
+    }
+    .odd {
+      color: #65DEEB;
+      text-align: right;
+      font-family: DINPro;
+      font-weight: 500;
+    }
+    &.odd-item:not(.disabled).up.up {
+      .odd {
+        @include useTheme {
+          color: getVar('dpUp');
+        }
+      }
+      &:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: url('~@this/assets/images/common/up_esports.png') no-repeat;
+        background-size: cover;
+        right: 6px;
+        position: absolute;
+        animation-name: breath;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+    }
+    &.odd-item:not(.disabled).down.down {
+      .odd {
+        @include useTheme {
+          color: getVar('dpDown');
+        }
+      }
+      &:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: url('~@this/assets/images/common/down_esports.png') no-repeat;
+        background-size: cover;
+        right: 6px;
+        position: absolute;
+        animation-name: breath;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+  .play-default {
+    padding: 8px 8px 2px;
+    .odd-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px 0 16px;
+      position: relative;
+      margin-bottom: 2px;
+      >div:first-child {
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+      }
+      .mw-60 {
+        max-width: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+      }
+
+      &.empty {
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+    .market-item {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(2, 1fr);
+      &.one-row {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      &.one-line {
+        display: flex;
+      }
+      &.col-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+      }
+    }
+  }
+}
