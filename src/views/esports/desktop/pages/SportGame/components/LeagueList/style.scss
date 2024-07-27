@@ -1,0 +1,170 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  .play-type-wrapper{
+    height: 34px;
+    padding-left: 14px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(to right, #233A49 70%, #181926 100%) padding-box,
+                linear-gradient(to right, rgba(101, 222, 235, 0.40), rgba(101, 222, 235, 0.00)) border-box;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-size: 13px;
+    font-weight: 600;
+    box-sizing: border-box;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    &--champion {
+      top: -8px;
+      margin-left: -9px;
+      margin-right: -9px;
+    }
+    &.is-closed {
+      &:after {
+        transform: rotate(0);
+      }
+      .caret-icon {
+        transform: rotate(-180deg);
+      }
+    }
+    .caret-icon {
+      transform: rotate(-90deg);
+      transition: .2s;
+    }
+    span:last-child {
+      color: #65DEEB;
+      font-family: "PingFang SC";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px; /* 100% */
+    }
+  }
+
+  .league-wrapper {
+    height: 34px;
+    background: rgba(110, 125, 188, 0.13);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 14px;
+    padding-right: 16px;
+    cursor: pointer;
+    &:not(.opened) {
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    &.opened {
+      border-radius: 6px 6px 0 0;
+    }
+    .league-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      .league {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+      .league-name {
+        display: flex;
+        gap: 8px;
+        color: #BECEEE;
+        text-align: center;
+        font-family: "PingFang SC";
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px; /* 116.667% */
+        span {
+          color: #798BB2;
+        }
+      }
+    }
+    .action {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    +.match-items-wrapper {
+      margin-top: 0 !important;
+    }
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &.has-more:hover {
+    padding-bottom: 60px;
+    .match-pages {
+      transform: translate(calc(-50% - 75px), 0);
+    }
+  }
+  .skeleton-wrapper {
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+    transition-delay: .32s;
+    pointer-events: none;
+    opacity: 0;
+    &.fade_in,
+    &.fade_in_second {
+      opacity: 1;
+      transition: all 0.1s linear;
+      pointer-events: unset;
+    }
+  }
+  .match-pages {
+    position: fixed;
+    transition: 0.3s ease-in-out;
+    left: 50%;
+    bottom: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transform: translate(calc(-50% - 75px), 110%);
+    width: 830px;
+    z-index: 2;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    &.has-more:hover {
+      .match-pages {
+        transform: translateY(0);
+      }
+    }
+    .match-pages {
+      left: 230px;
+      transform: translateY(110%);
+    }
+  }
+  .league-hidden {
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+  }
+}
+
+:local(.skeleton){
+  padding: 10px 14px;
+}

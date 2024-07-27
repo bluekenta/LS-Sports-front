@@ -1,0 +1,31 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.dp_search_input) {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  height: 24px;
+  border-radius: 4px;
+  background: rgba(110, 125, 188, 0.12);
+  padding-left: 6px;
+
+  input {
+    width: 100px;
+    height: 16px;
+    border: none;
+    background: initial;
+    color: #BECEEE;
+    &::placeholder {
+      color: #4B5770;
+      line-height: 16px;
+    }
+  }
+
+  button {
+    min-height: 13px;
+    color: #BECEEE;
+    border: none;
+    background: initial;
+  }
+}

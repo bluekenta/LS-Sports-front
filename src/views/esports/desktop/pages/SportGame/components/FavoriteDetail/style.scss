@@ -1,0 +1,128 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.favorite-detail) {
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  .option-bar {
+    border-radius: 6px 6px 0 0;
+    @include useTheme {
+      background: getVar('dpCar');
+    }
+  }
+  .favorite-detail-list {
+    background: rgba(110, 125, 188, 0.07);;
+    padding: 0 !important;
+    >div {
+      &.dp-empty-wrap {
+        background-color: transparent !important;
+      }
+      &:not(.dp-empty-wrap) {
+        margin-top: 8px;
+      }
+      > div {
+        &:not(:first-child) {
+          margin-left: 8px;
+          margin-right: 8px;
+          margin-top: 8px;
+        }
+      }
+
+      .favorite-empty {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        >span:first-child {
+          margin-top: 27px;
+          font-size: 14px;
+          line-height: 14px;
+          margin-bottom: 30px;
+        }
+        .goBack {
+          width: 120px;
+          height: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: url('~@this/assets/images/common/model-btn-1.svg') center center no-repeat;
+          background-size: contain;
+          @include useTheme{
+            color: getVar('dpTheme');
+          }
+        }
+      }
+    }
+    .play-type-wrapper {
+      font-weight: 500;
+      font-family: DINPro;
+      gap: 0;
+      .count {
+        margin-left: 8px;
+      }
+    }
+  }
+  .back {
+    height: 46px;
+    box-sizing: border-box;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    .flex > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+  }
+  .title {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 24px;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 9px;
+      width: 2px;
+      height: 12px;
+      @include useTheme {
+        background: getVar('dpTheme');
+      }
+    }
+  }
+  .league-wrapper{
+    top: 0!important;
+  }
+  .match-title{
+    top: 0!important;
+  }
+  .play-type-wrapper {
+    height: 42px;
+    margin-bottom: 8px;
+    align-items: center;
+    padding-left: 14px !important;
+    box-sizing: border-box;
+    font-size: 14px;
+    // background: linear-gradient(to right, #233A49 70%, #181926 100%);
+    svg {
+      margin-right: 8px;
+      transform: rotate(270deg);
+    }
+    .count {
+      font-size: 14px;
+    }
+    &.is-closed {
+      svg {
+        transition: all .2s;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
