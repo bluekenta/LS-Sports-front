@@ -1,0 +1,100 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.match_item_of_noob) {
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  &.active {
+    border-color: rgba(110, 125, 188, 0.50);
+    border-radius: 6px;
+    box-sizing: border-box;
+
+    .match-header {
+      background: rgba(110, 125, 188, 0.07);
+    }
+    
+    .match-info {
+      background: rgba(110, 125, 188, 0.20);
+      .team.left {
+        background: url('./MatchInfos/i/left-bg-active.svg') no-repeat !important;
+      }
+      .team.right {
+        background: url('./MatchInfos/i/right-bg-active.svg') no-repeat !important;
+      }
+    }
+  }
+  &:not(.active) {
+    .match-header {
+      background: rgba(110, 125, 188, 0.13);
+    }
+    .match-info {
+      .team.left {
+        background: url('./MatchInfos/i/left-bg-inactive.svg') no-repeat !important;
+      }
+      .team.right {
+        background: url('./MatchInfos/i/right-bg-inactive.svg') no-repeat !important;
+      }
+    }
+  }
+  &:hover {
+    .match-info {
+      background: rgba(110, 125, 188, 0.14);
+    }
+  }
+  
+  .match-header {
+    height: 33px;
+    font-size: 13px;
+    font-family: "PingFang SC";
+    padding-left: 14px;
+    border-radius: 6px 6px 0px 0px;
+    
+    .league-name {
+      color: #BECEEE;
+    }
+    .match-round {
+      font-family: "DINPro";
+      color: #798BB2;
+      font-size: 14px;
+    }
+    .gunqiu {
+      padding: 3px 8px;
+      height: 18px;
+      box-sizing: border-box;
+      font-size: 12px;
+      border-radius: 4px;
+      background: rgba(208, 136, 52, 0.20);
+      color: #FFA944;
+    }
+    .chuanguan {
+      padding: 3px 8px;
+      height: 18px;
+      font-size: 12px;
+      // box-sizing: border-box;
+      border-radius: 4px;
+      background: rgba(52, 161, 208, 0.20);
+      color: #65DEEB;
+    }
+  }
+
+  .match-info {
+    background: rgba(110, 125, 188, 0.07);
+    border-radius: 0 0 6px 6px;
+    padding: 8px 0;
+    .video-list {
+      width: 40px;
+      height: 44px;
+      margin-left: 16px;
+      margin-right: 20px;
+      // .shouchang {
+      //   background-color: rgba(121, 139, 178, 0.4);
+      // }
+      .shipin {
+        width: 40px;
+        height: 18px;
+        color: #65DEEB;
+        border: 1px solid #65DEEB;
+        border-radius: 4px;
+      }
+    }
+  }
+}
