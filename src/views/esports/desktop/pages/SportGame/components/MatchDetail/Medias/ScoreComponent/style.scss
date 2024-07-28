@@ -1,0 +1,111 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 436px;
+  height: 188px;
+  margin: auto;
+  border-radius: 8px;
+  background: linear-gradient(249deg, rgba(48, 38, 61, 0.50) 16.51%, rgba(24, 43, 80, 0.50) 97.18%);
+  backdrop-filter: blur(1.5px);
+
+  &.is-full {
+    width: 100%;
+    height: auto;
+    background: none;
+    border-radius: 0;
+    backdrop-filter: blur(0);
+    gap: 34.5px;
+  .logo {
+      flex-direction: row-reverse;
+      padding: 0;
+      gap: 20px;
+
+      .team-logo {
+        width: 56px !important;
+      }
+      &:last-of-type {
+        flex-direction: row;
+      }
+    }
+  
+    .score {
+      position: relative;
+      width: fit-content !important;
+      &.vs {
+        min-width: 108px;
+      }
+      .bottom {
+        position: absolute;
+        top: -20px;
+        padding: 0;
+      }
+      .above {
+        font-family: DINPro;
+        font-size: 44px;
+        line-height: 57px;
+      }
+    }
+
+  
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 196px;
+    height: 100%;
+    padding-top: 64px;
+    box-sizing: border-box;
+
+    .team-name {     
+      color: #FFF;
+      font-family: "PingFang SC";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px; /* 114.286% */
+    }
+    .team-logo {
+      width: 48px;
+      flex-shrink: 0;
+    }
+  }
+  .score {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 104px;
+    height: 100%;
+    .above {
+      color: var(--DP_basic_white, #FFF);
+      text-align: center;
+      font-family: "DIN Alternate";
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 42px;
+    }
+    .bottom {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-block: 19px 35px;
+      span {
+        color: #FFF;
+        text-align: center;
+        font-family: "PingFang SC";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 21.12px;
+
+      }
+    }
+  }
+}

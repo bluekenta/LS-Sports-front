@@ -1,10 +1,3 @@
-/*
- * @Author: Passion.KMG
- * @Date: 2023-12-14 11:00:08
- * @LastEditors: Passion.KMG
- * @FilePath: /KMG/src/core/templates/desktop/components/Toast/index.tsx
- * @Description:
- */
 import {ToastContainer, toast} from 'react-toastify';
 import usePublicState from '@core/hooks/usePublicState';
 import classnames from 'classnames';
@@ -25,13 +18,15 @@ const getImageByType = (img: string) => {
   }
 };
 
-const CustomToast = ({text, img}: {text: string, img: string} ) => {
-  return <div className='custom-toast-content'>
-    <img src={getImageByType(img)} alt={img}/>
-    <span>{text}</span>
-  </div>;
+const CustomToast = ({text, img}: {text: string; img: string}) => {
+  return (
+    <div className='custom-toast-content'>
+      <img src={getImageByType(img)} alt={img} />
+      <span>{text}</span>
+    </div>
+  );
 };
-export default function() {
+export default function () {
   const {base, dispatch, ACTIONS} = usePublicState();
   const oldData = useRef({
     text: '',
@@ -47,7 +42,7 @@ export default function() {
       return;
     }
 
-    toast(<CustomToast text={base.toast.text} img={base.toast.types as string}/>, {
+    toast(<CustomToast text={base.toast.text} img={base.toast.types as string} />, {
       closeButton: false,
       position: 'top-center',
       style: {
@@ -64,9 +59,11 @@ export default function() {
     dispatch(ACTIONS.BASE.openToast({text: null}));
   }, [base.toast.text]);
 
-  return <div className={classnames(styles.center)}>
-    <ToastContainer className={classnames(styles.toast, base.toast.types)} />
-  </div>;
+  return (
+    <div className={classnames(styles.center)}>
+      <ToastContainer className={classnames(styles.toast, base.toast.types)} />
+    </div>
+  );
 }
 
 // 17:55:31 GMT+8

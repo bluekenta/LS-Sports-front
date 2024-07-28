@@ -1,0 +1,27 @@
+:local(.dp_icon) {
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+  .icon-arrow {
+    transition: .2s;
+  }
+  &.open {
+    .icon-arrow {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+
+svg.close-all-matchs > path:last-of-type {
+
+  transform-origin: 12px 12px;
+  transform: rotate(0deg);
+  transition: all 0.2s linear;
+}
+svg.open-all-matchs > path:last-of-type {
+
+  transform-origin: 12px 12px;
+  transform: rotate(-180deg);
+  transition: all 0.2s linear;
+}

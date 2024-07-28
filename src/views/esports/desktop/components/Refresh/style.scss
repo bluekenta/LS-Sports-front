@@ -1,0 +1,20 @@
+@import '~@core/templates/desktop/styles/mixins/index.scss';
+
+:local(.wrapper) {
+  width: 24px;
+  height: 24px;
+  padding-bottom: 2px;
+  cursor: pointer;
+  background: url(./i/refresh-outter.webp) no-repeat;
+  background-size: contain;
+  .refresh-inner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(./i/refresh-inner.webp) no-repeat;
+    background-size: contain;
+    &.rotate-infinite {
+      @include rotate-infinite;
+    }
+  }
+}
